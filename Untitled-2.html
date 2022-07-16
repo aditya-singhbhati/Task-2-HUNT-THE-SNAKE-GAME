@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUNT THE SNAKE</title>
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-weight:200 ;
+        }
+
+        body{
+            margin:0;
+            background-color:blue;
+        }
+
+        .playground{
+            width: 60px;
+            height: 60px;
+            border-radius: 100%;
+            position: absolute;
+            background-image: url("https://i.pinimg.com/564x/e6/89/f6/e689f6689b7f0d9a6af5c60fbb305408.jpg");
+            background-size:cover;
+            /* background: none; */
+            animation: movement;
+            margin:10px;
+        }
+
+        @keyframes movement{
+            0%{
+                left:30px ;
+                top: 30px;
+            }
+            5%{
+                left:350px ;
+                top: 470px
+            }
+            10%{
+                left:250px ;
+                top: 390px
+            }
+            15%{
+                left:300px ;
+                top: 490px
+            }
+            20%{
+                left:600px ;
+                top: 500px
+            }
+            25%{
+                left:600px ;
+                top: 400px
+            }
+            30%{
+                left:100px ;
+                top: 100px
+            }
+            35%{
+                left:600px ;
+                top: 200px
+            }
+            40%{
+                left:100px ;
+                top: 500px
+            }
+            45%{
+                left:600px ;
+                top: 600px
+            }
+            50%{
+                left:300px ;
+                top: 600px
+            }
+            55%{
+                left:600px ;
+                top: 400px
+            }
+            60%{
+                left:300px ;
+                top: 200px
+            }
+            65%{
+                left:600px ;
+                top: 100px
+            }
+            70%{
+                left:300px ;
+                top: 600px
+            }
+            75%{
+                left:600px ;
+                top: 400px
+            }
+            80%{
+                left:100px ;
+                top: 0px
+            }
+            85%{
+                left:600px ;
+                top: 200px
+            }
+            90%{
+                left:100px ;
+                top: 500px
+            }
+            95%{
+                left:0px ;
+                top: 600px
+            }
+            100%{
+                left:600px ;
+                top: 200px
+            }
+        }
+
+
+        .sec1{
+            /* background-color: black; */
+            text-align: center;
+            color:whitesmoke;
+
+        }
+
+        .sec1 h1{
+            background-color: #61b752;
+            padding: 10px;
+            margin: 0;
+            top:0;
+        }
+
+        .sec2{
+            background-color: #61b752;
+            float:right;
+            width: 500px;
+            height: 100vh;
+            text-align: center;
+            /* padding: 20px 80px; */
+            margin: 0;
+        }
+
+        button{
+            padding: 10px;
+            border-radius: 5pc;
+            padding: 15px;
+            /* border-color: ; */
+            cursor: pointer;
+        }
+
+        button:hover{
+            background-color:#333 ;
+            color:antiquewhite;
+            transition: 0.5s;
+        }
+
+        .display_score {
+            margin-top: 25px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Section 1 left screen  -->
+    <div class="sec1">
+        <h1>HUNT THE SNAKE</h1>
+
+    <div class="playground">
+        <div id="circle" onclick="score()"></div>
+        <div id="result"></div>
+    </div>
+
+    <!-- Section 2 right screen -->
+        <div class="sec2">
+
+            <h3>Click on a difficulty to start the game.</h3>
+
+                <button onclick = "easy()">Easy</button>
+                <button onclick = "medium()">Medium</button>
+                <button onclick = "hard()">Hard</button>
+
+
+
+            <div class="display_score">
+                <h3>Score: <br></h3>
+                <h3 id = "score"></h3>
+            </div>
+
+            <button onclick = "restart()">Restart</button>
+            </div>
+    </div>
+
+      <script>
+        // For easy level
+        function easy() {
+            document.getElementById('circle').style.animationDuration = '30s';
+            document.getElementById('circle').className = 'playground';
+        }
+
+        //For Medium Level
+        function medium() {
+            document.getElementById('circle').style.animationDuration = '20s';
+            document.getElementById('circle').className = 'playground';
+        }
+
+
+        //For Hard Level
+        function hard() {
+            document.getElementById('circle').style.animationDuration = '15s';
+            document.getElementById('circle').className = 'playground';
+        }
+
+        let count = 0;
+
+        // To count the score and display as output.
+        function score() {
+            count+=1;
+            var scr = document.getElementById('score');
+            scr.innerHTML = count;
+
+            if( count >= 10 ){
+                var res = document.getElementById("score");
+                res.innerHTML = "Yeah !! You won the game."
+            }
+
+        }
+
+        // Restart the game by refreshing the page
+        function restart() {
+            window.location.reload();
+        }
+
+      </script>          
+</body>
+</html> 
